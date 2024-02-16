@@ -1,9 +1,4 @@
-/* Основные стили проекта. Это стили для темы, которую вы верстаете первой. */
-
-
 .page {
-  /* сохраните в разметке и стилях класс page. На его основе работает скрипт. */
-  
   color: var(--text-color);
   background-color: var(--bg-color);
   font-family: 'IBM Plex mono', sans-serif;
@@ -17,17 +12,16 @@
   background-attachment: fixed;
 }
 
-
 .header {
   position: relative;
   display: grid;
-  gap: 65px;
+  grid-template-rows: 1fr min-content 1fr;
   justify-items: end;
-  align-content: end;
-  inline-size: clamp(375px, 100%, 1024px);
+  align-items: center;
+  inline-size: min(100%, 1024px);
   block-size:100vh;
   margin: 0 auto;
-  padding: 0 10px 66px;
+  padding: 10px;
 }
 
 .decorated-zone::before {
@@ -54,6 +48,9 @@
 
 .header__recording {
   position: absolute;
+  inset-inline-end: 0px;
+  inset-block-start: 0px;
+  
 }
 
 .header__recording::before {
@@ -77,12 +74,12 @@
 }
 
 .header__theme-menu {
-  align-self: start;
+  
 }
 
 .header__theme-menu-list {
   display: grid;
-  gap: 13px;
+  gap: 10px;
 }
 
 .header__theme-menu-item {
@@ -91,11 +88,12 @@
 }
 
 .header__theme-menu-button {
+  inline-size: 70px;
+  block-size: 26px;
   color: var(--header-accent-color);
   text-transform: lowercase;
   background-color: transparent;
   border: none;
-  padding: 1.5px 13px;
   cursor: pointer;
 }
 
@@ -126,14 +124,6 @@
 }
 
 .header__theme-menu-button_type_dark {
-}
-
-
-.header__content {
-  display: grid;
-  gap: 55px;
-  justify-items: end;
-  inline-size: 100%;
 }
 
 .header__heading {
@@ -205,13 +195,7 @@
 /* МЕДИАВЫРАЖЕНИЯ ДЛЯ ГОРИЗОНТАЛЬНОГО РАСПОЛОЖЕНИЯ ПЛАНШЕТА */
 
 @media  (640px <= width <= 800px) {
-  .header {
-    gap: 173px;
-  }
-
-  .header__content {
-    gap: 162px;
-  }
+  
 
 }
 
@@ -219,10 +203,12 @@
 
 @media  (width >= 640px) {
   .header {
-    padding: 0 20px 183px 0;
+    padding: 20px;
   }
 
   .header__heading {
+    position: relative;
+    inset-inline-end: 20px;
     --heading-fs: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem) ;
   }
 
@@ -246,9 +232,6 @@
     inset-inline-end: 29px;
   }
 
-  .header__title {
-    inline-size: max(355px, calc(50% - 10px));
-  }
 
   /* main */
 
@@ -261,15 +244,8 @@
 /* МЕДИАВЫРАЖЕНИЯ DESKTOP */
 
 @media (width >= 960px) {
-  .header {
-    align-content: space-between;
-    padding: 20px 20px 134px 0;
-    gap: 114px;
-  }
 
   .header__theme-menu {
-    position: relative;
-    left: 10px;
     align-self: start;
     justify-self: center;
   }
@@ -278,10 +254,6 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-  }
-
-  .header__content {
-    gap: 114px;
   }
 
 }
