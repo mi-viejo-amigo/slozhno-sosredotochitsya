@@ -1,7 +1,7 @@
 .page {
   color: var(--text-color);
   background-color: var(--bg-color);
-  font-family: 'IBM Plex mono', sans-serif;
+  font-family: "IBM Plex mono", sans-serif;
   font-size: 18px;
   font-weight: 400;
   line-height: 23.4px;
@@ -17,7 +17,7 @@
 .decorated-zone {
   position: relative;
   inline-size: min(100%, 1024px);
-  block-size:100vh;
+  block-size: 100vh;
   margin: 0 auto;
 }
 
@@ -29,7 +29,7 @@
   width: 25px;
   height: 25px;
   border-inline-end: 1px solid var(--header-accent-color);
-  border-block-start: 1px solid var(--header-accent-color)
+  border-block-start: 1px solid var(--header-accent-color);
 }
 
 .decorated-zone::after {
@@ -64,7 +64,6 @@
   position: absolute;
   inset-inline-end: 0px;
   inset-block-start: 0px;
-  
 }
 
 .header__recording::before {
@@ -87,18 +86,9 @@
   box-shadow: 0px 0px 4px 2px var(--accent-color);
 }
 
-.header__theme-menu {
-  
-}
-
 .header__theme-menu-list {
   display: grid;
   gap: 10px;
-}
-
-.header__theme-menu-item {
- 
-  
 }
 
 .header__theme-menu-button {
@@ -112,7 +102,7 @@
 }
 
 .header__theme-menu-button:hover {
-  outline: 1px solid rgba(var(--header-accent-color-rgb), 0.4)
+  outline: 1px solid rgba(var(--header-accent-color-rgb), 0.4);
 }
 
 .header__theme-menu-button:focus {
@@ -123,21 +113,12 @@
   border-block-end: 1px solid var(--header-accent-color);
 }
 
-.header__theme-menu-button_type_light {
-}
-
 .header__theme-menu-button_active {
-  pointer-events: none
+  pointer-events: none;
 }
 
 .header__theme-menu-button_active:disabled {
   outline: 1px solid var(--header-accent-color);
-}
-
-.header__theme-menu-button_type_auto {
-}
-
-.header__theme-menu-button_type_dark {
 }
 
 .header__heading {
@@ -247,17 +228,15 @@
   text-shadow: 4px 4px 0 var(--accent-color);
 }
 
-
 /* МЕДИАВЫРАЖЕНИЯ ДЛЯ ГОРИЗОНТАЛЬНОГО РАСПОЛОЖЕНИЯ ПЛАНШЕТА */
 
-@media  (width >= 640px) {
-
+@media (width >= 640px) {
   .header {
     padding: 20px;
   }
 
   .heading-decoration {
-    --heading-fs: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem) ;
+    --heading-fs: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
   }
 
   .header__heading {
@@ -269,7 +248,7 @@
     inset-block-start: 20px;
     inset-inline-end: 20px;
   }
-  
+
   .decorated-zone::after {
     inset-block-end: 20px;
     inset-inline-start: 20px;
@@ -308,8 +287,8 @@
     grid-column: 1 / span 3;
   }
 
-  .content-section__title_layout-modified{
-    grid-column: 0 / span 1;
+  .content-section__title_layout-modified {
+    grid-column: 1 / span 1;
   }
 
   .gallery {
@@ -321,30 +300,30 @@
   .gallery__title {
     grid-column: 1 / -1;
   }
-  
+
   .gallery__image {
     block-size: 100%;
   }
-  
+
   .gallery__image_one {
     grid-column: 1 / span 2;
   }
-  
+
   .gallery__image_two {
     grid-column-end: -1;
     grid-row: 2 / span 2;
   }
-  
+
   .gallery__image_thre {
     grid-column: 1 / 2;
     grid-row: 3 / -1;
   }
-  
+
   .gallery__image_four {
     grid-column: 2 / 3;
     grid-row: 3 / 4;
   }
-  
+
   .gallery__image_five {
     grid-column: 2 / -1;
     grid-row-end: -1;
@@ -354,7 +333,6 @@
 /* МЕДИАВЫРАЖЕНИЯ DESKTOP */
 
 @media (width >= 960px) {
-
   .header__theme-menu {
     align-self: start;
     justify-self: center;
@@ -376,9 +354,7 @@
     grid-column: initial;
   }
 
-  .content-section__title_layout-modified{
-    grid-column: 0 / span 1;
+  .content-section__title_layout-modified {
+    grid-column: 1 / span 1;
   }
-
 }
-
