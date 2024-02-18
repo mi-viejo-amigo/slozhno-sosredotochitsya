@@ -21,6 +21,10 @@
   color: #353430;
 }
 
+.theme_light .content-section__title {
+  color: var(--text-color);
+}
+
 @media (prefers-color-scheme: light) {
   :root {
     --text-color: #353430;
@@ -43,4 +47,9 @@
   .main__title {
     color: #353430;
   }
+
+  .content-section__title {
+    color: var(--text-color);
+  }
+
 }

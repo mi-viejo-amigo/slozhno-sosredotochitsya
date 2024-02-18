@@ -12,16 +12,13 @@
   background-attachment: fixed;
 }
 
-.header {
+/* ЗАИМСТВОВАНЫЕ МОДЕЛИ */
+
+.decorated-zone {
   position: relative;
-  display: grid;
-  grid-template-rows: 1fr min-content 1fr;
-  justify-items: end;
-  align-items: center;
   inline-size: min(100%, 1024px);
   block-size:100vh;
   margin: 0 auto;
-  padding: 10px;
 }
 
 .decorated-zone::before {
@@ -44,6 +41,23 @@
   height: 25px;
   border-inline-start: 1px solid var(--header-accent-color);
   border-block-end: 1px solid var(--header-accent-color);
+}
+
+.heading-decoration {
+  color: var(--heading-color);
+  font-size: var(--heading-fs);
+  font-weight: 700;
+  line-height: 82.5%;
+}
+
+/* HEADER START */
+
+.header {
+  display: grid;
+  grid-template-rows: 1fr min-content 1fr;
+  justify-items: end;
+  align-items: center;
+  padding: 10px;
 }
 
 .header__recording {
@@ -128,10 +142,6 @@
 
 .header__heading {
   text-shadow: 4px 4px 0 var(--accent-color);
-  color: var(--heading-color);
-  font-size: var(--heading-fs);
-  font-weight: 700;
-  line-height: 82.5%;
   justify-self: start;
 }
 
@@ -156,60 +166,103 @@
   padding: 40px 10px;
 }
 
-.main__why-section {
-  display: grid;
-  gap: 20px;
-}
-
-.main__what-section {
+.content-section {
   display: grid;
   gap: 20px;
 }
 
 /* СТИЛИ */
 
-.main__title {
-  color: #FF0070;
+.content-section__title {
+  color: var(--accent-color);
   font-size: inherit;
   font-weight: 700;
   line-height: 23.4px;
 }
 
-.main__content-wrapper {
+.content-section__card {
   display: grid;
   gap: 10px;
 }
 
-.main__subtitle {
+.content-section__subtitle {
   font-size: inherit;
 }
 
-.main__text {
+.content-section__subtitle_fw-regular {
+  font-weight: 400;
 }
 
-.main__link_decoration {
+.content-section__list-subtitle {
+  margin-block-end: 10px;
+  font-size: inherit;
+}
+
+.content-section__link_decoration {
+  position: relative;
+  text-decoration: none;
   text-shadow: 2px 2px 0 var(--accent-color);
+}
+
+.content-section__link_decoration:focus {
+  outline: none;
+}
+
+.content-section__link_decoration:focus-visible {
+  outline: 1px solid var(--header-accent-color);
+}
+
+.content-section__link_decoration:hover::after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 1px;
+  background-color: var(--header-accent-color);
+}
+
+.gallery {
+  display: grid;
+  gap: 10px;
+}
+
+.gallery__title {
+  font-size: inherit;
+}
+
+.gallery__image {
+  inline-size: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.footer {
+  display: grid;
+  place-content: center;
+}
+
+.footer__heading {
+  text-shadow: 4px 4px 0 var(--accent-color);
 }
 
 
 /* МЕДИАВЫРАЖЕНИЯ ДЛЯ ГОРИЗОНТАЛЬНОГО РАСПОЛОЖЕНИЯ ПЛАНШЕТА */
 
-@media  (640px <= width <= 800px) {
-  
-
-}
-
-/* МЕДИАВЫРАЖЕНИЯ ОБОИХ БОЛЬШИХ ЭКРАНОВ */
-
 @media  (width >= 640px) {
+
   .header {
     padding: 20px;
+  }
+
+  .heading-decoration {
+    --heading-fs: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem) ;
   }
 
   .header__heading {
     position: relative;
     inset-inline-end: 20px;
-    --heading-fs: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem) ;
   }
 
   .decorated-zone::before {
@@ -232,13 +285,70 @@
     inset-inline-end: 29px;
   }
 
-
   /* main */
 
-  .main-content-wrapper {
-    padding: 80px 20px;
+  .main {
+    gap: 80px;
+    padding: 60px 20px;
   }
 
+  .content-section {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .content-section_layout-modified {
+    grid-template-rows: repeat(4, min-content);
+  }
+
+  .content-section__card {
+    grid-column: 2 / span 2;
+  }
+
+  .content-section__card_layout-modified {
+    grid-column: 1 / span 3;
+  }
+
+  .content-section__title_layout-modified{
+    grid-column: 0 / span 1;
+  }
+
+  .gallery {
+    gap: 20px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(4, min-content);
+  }
+
+  .gallery__title {
+    grid-column: 1 / -1;
+  }
+  
+  .gallery__image {
+    block-size: 100%;
+  }
+  
+  .gallery__image_one {
+    grid-column: 1 / span 2;
+  }
+  
+  .gallery__image_two {
+    grid-column-end: -1;
+    grid-row: 2 / span 2;
+  }
+  
+  .gallery__image_thre {
+    grid-column: 1 / 2;
+    grid-row: 3 / -1;
+  }
+  
+  .gallery__image_four {
+    grid-column: 2 / 3;
+    grid-row: 3 / 4;
+  }
+  
+  .gallery__image_five {
+    grid-column: 2 / -1;
+    grid-row-end: -1;
+  }
 }
 
 /* МЕДИАВЫРАЖЕНИЯ DESKTOP */
@@ -254,6 +364,20 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+  }
+
+  .content-section_layout-modified {
+    grid-template-rows: repeat(2, min-content);
+    align-items: start;
+  }
+
+  .content-section__card_layout-modified {
+    grid-row: 2 / 3;
+    grid-column: initial;
+  }
+
+  .content-section__title_layout-modified{
+    grid-column: 0 / span 1;
   }
 
 }

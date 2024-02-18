@@ -20,6 +20,10 @@
   color: #FF0070;
 }
 
+.theme_dark .content-section__title {
+  color: var(--accent-color);
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --text-color: #F1B2CE;
@@ -42,4 +46,9 @@
   .main__title {
     color: #FF0070;
   }
+
+  .content-section__title {
+    color: var(--accent-color);
+  }
+
 }
